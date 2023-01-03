@@ -11,6 +11,10 @@ const { PORT, MSG } = process.env;
 const express = require('express');
 const server = express();
 
+// Configuration du moteur de vue
+server.set('view engine', 'pug');
+server.set('views', './views');
+
 // Ajout du routing
 const router = require('./routers/router');
 server.use(router);
