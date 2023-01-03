@@ -16,13 +16,38 @@ const HomeController = {
     },
 
     contact_GET: (req, res) => {
-        // TODO Finish this
-        res.sendStatus(501);
+        res.render('home/contact', {
+            data: {},
+            errors: {}
+        });
     },
 
     contact_POST: (req, res) => {
-        // TODO Finish this
-        res.sendStatus(501);
+        // Récuperation des données du formulaire
+        const { pseudo, message } = req.body;
+
+        // Remarque : des bibliotheques de validation existe !
+        const pseudoNotValid = !pseudo || pseudo.length < 2;
+        const messageNotValid = !message;
+
+        if (pseudoNotValid || messageNotValid) {
+            res.render('home/contact', {
+                errors: {
+                    pseudo: pseudoNotValid,
+                    message: messageNotValid,
+                },
+                data: {
+                    pseudo,
+                    message
+                }
+            });
+            return;
+        }
+
+        // Traitement -> Par exemple: stockage en DB
+        console.log(`MESSAGE ${pseudo} : ${message}`);
+
+        res.redirect('/');
     },
 
 };

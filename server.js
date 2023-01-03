@@ -18,6 +18,9 @@ server.set('views', './views');
 // Ajout des fichiers static
 server.use(express.static('public'));
 
+// Récuperation des données du type "application/x-www-form-urlencoded"
+server.use(express.urlencoded({ extended: true }));
+
 // Ajout du routing
 const router = require('./routers/router');
 server.use(router);
