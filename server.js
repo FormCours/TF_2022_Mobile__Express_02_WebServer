@@ -15,6 +15,9 @@ const server = express();
 server.set('view engine', 'pug');
 server.set('views', './views');
 
+// Ajout des fichiers static
+server.use(express.static('public'));
+
 // Ajout du routing
 const router = require('./routers/router');
 server.use(router);
