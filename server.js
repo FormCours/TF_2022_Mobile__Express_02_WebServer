@@ -29,3 +29,13 @@ server.use(router);
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+
+// TODO Exercice :
+// Ajouter les pages pour la gestion des produits
+// - Une page avec la liste des produits
+//   Elle affiche le nom et le prix de chaque produit avec un lien vers la page detail.
+// - Une page avec le detail d'un produit
+//   Elle affiche toutes les données d'un produit avec son image.
